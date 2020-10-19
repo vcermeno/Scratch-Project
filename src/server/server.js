@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const resourceRouter = require('./routes/resourceRouter');
-const PORT = 3000;
+const PORT = process.env.PORT || '3000';
 const cors = require('cors');
 
 // Parse request body
@@ -10,15 +10,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Send main app
+app.use(express.static(path.join(__dirname, '../../build/client/')));
+
 // Set up routers
 app.use('/resource', resourceRouter);
-
-// Send main app
-app.get('/', (req, res) => {
-  return res
-    .status(200)
-    .sendFile(path.resolve(__dirname, './client/index.html'));
-});
 
 // Catch-all route handler
 app.use('*', (req, res) => {
@@ -30,7 +26,7 @@ app.use((err, req, res, next) => {
   console.log('invoking global error handler');
   const defaultErr = {
     log: 'Express error handler caught unknown middleware',
-    status: 400,
+    status: 500,
     message: { err: 'An error occurred' },
   };
 

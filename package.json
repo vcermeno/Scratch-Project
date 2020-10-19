@@ -2,10 +2,10 @@
   "name": "scratch-project",
   "version": "1.0.0",
   "description": "Our scratch project",
-  "main": "src/server/server.js",
+  "private": true,
   "scripts": {
-    "start": "cross-env NODE_ENV=production node src/server/server.js",
-    "build": "webpack",
+    "start": "cross-env NODE_ENV=production node ./src/server/server.js",
+    "prod": "cross-env NODE_ENV=production webpack -p",
     "dev": "cross-env NODE_ENV=development concurrently \"nodemon src/server/server.js\" \"webpack-dev-server --open --hot\""
   },
   "repository": {
@@ -31,7 +31,8 @@
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-node-externals": "^2.5.2"
   },
   "dependencies": {
     "@material-ui/core": "^4.10.1",
