@@ -1,4 +1,4 @@
-## Dev-Shark
+## DevShark
 
 ### Ever wanted to know the best resource for a certain language or framework? Well, now you can! Enter DevShark: an open-source aggregator of the best programming resources, curated by the developer community.
 
