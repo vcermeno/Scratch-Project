@@ -1,12 +1,13 @@
 import axios from 'axios';
 import * as types from '../constants/actionTypes';
+const backendUrl = process.env.BACKEND_URL;
 
 // Send get request to server for resource (tech name)
 // Input: resource name
 export const getResource = (resource) => {
   return (dispatch) => {
     axios
-      .get(`http://localhost:3000/resource/${resource.toLowerCase()}`)
+      .get(`${backendUrl}/resource/${resource.toLowerCase()}`)
       .then((response) => {
         dispatch({
           type: types.GET_RESOURCE,
@@ -32,7 +33,7 @@ export const updateTopic = (topic) => {
 export const addResource = (resource) => {
   return (dispatch) => {
     axios
-      .post(`http://localhost:3000/resource/${resource.name}`, resource)
+      .post(`${backendUrl}/resource/${resource.name}`, resource)
       .then((response) => {
         dispatch({
           type: types.ADD_RESOURCE,
@@ -47,7 +48,7 @@ export const addResource = (resource) => {
 export const upvote = (id, tech) => {
   return (dispatch) => {
     axios
-      .put('http://localhost:3000/resource/upvote', { id: id, tech: tech })
+      .put(`${backendUrl}/resource/upvote`, { id: id, tech: tech })
       .then((response) => {
         dispatch({
           type: types.UPVOTE,
@@ -62,7 +63,7 @@ export const upvote = (id, tech) => {
 export const downvote = (id, tech) => {
   return (dispatch) => {
     axios
-      .put('http://localhost:3000/resource/downvote', { id: id, tech: tech })
+      .put(`${backendUrl}/resource/downvote`, { id: id, tech: tech })
       .then((response) => {
         dispatch({
           type: types.DOWNVOTE,

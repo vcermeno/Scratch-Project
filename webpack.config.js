@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
 const webpack = require('webpack');
+const backendUrl = process.env.BACKEND_URL;
 
 module.exports = [{
   name: 'client',
@@ -15,7 +16,7 @@ module.exports = [{
   devServer: {
     contentBase: path.join(__dirname, 'src/client'),
     proxy: {
-      '/resource' : 'http://localhost:3000/resource',
+      '/resource' : `${backendUrl}/resource`,
       hot: true
     }
   },
