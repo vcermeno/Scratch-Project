@@ -2,7 +2,10 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const resourceRouter = require('./routes/resourceRouter');
+
+require('dotenv').config();
 const PORT = process.env.PORT || '3000';
+
 const cors = require('cors');
 
 // Parse request body

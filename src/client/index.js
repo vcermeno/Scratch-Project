@@ -7,6 +7,8 @@ import { Provider } from 'react-redux';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import blue from '@material-ui/core/colors/blue';
 
+require('dotenv').config();
+
 const myColor = blue; 
 
 const theme = createMuiTheme({
