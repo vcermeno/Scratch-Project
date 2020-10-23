@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const resourceRouter = require('./routes/resourceRouter');
 
-require('dotenv').config();
+require('dotenv').config({path: path.resolve(__dirname+ '../../.env')});
 const PORT = process.env.PORT || '3000';
 
 const cors = require('cors');
