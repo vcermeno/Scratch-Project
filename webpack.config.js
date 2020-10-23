@@ -6,7 +6,7 @@ const backendUrl = process.env.BACKEND_URL;
 
 module.exports = [{
   name: 'client',
-  entry: path.resolve(__dirname, './src/server/server.js'),
+  entry: path.resolve(__dirname, './src/client/index.js'),
   output: {
     path: path.resolve(__dirname, 'build/client'),
     publicPath: '/',
